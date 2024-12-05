@@ -1,16 +1,83 @@
-# haykolig
+![image](https://github.com/user-attachments/assets/35cd3959-0919-407c-8bd9-dcb5f0efec71)
 
-A new Flutter project.
 
-## Getting Started
+Proje Hakkında
+Kullanıcının futbol bültenindeki maçlar hakkında bilgi alıp sohbet edebileceği bir sosyal medya platformu
 
-This project is a starting point for a Flutter application.
+Ekibimiz
+Danışman:
+[https://github.com/keyvanarasteh](Keyvan Arasteh)
 
-A few resources to get you started if this is your first Flutter project:
+Takım Üyeleri:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Tarık Ustaoğlu [GitHub](https://github.com/Tarikusta52)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Özellikler
+[Kullanıcı bültendeki maçlar hakkında yorum yapabilecek]
+
+[Bültendeki maçların oynanacağı saat stadyum gibi bilgilere erişebilecek]
+
+[Karşı karşıya gelen takımların son oyadığı 5 maçın sonucu ve aralarında oynadıkları son 5 maçın sonucu verilecek]
+
+Kullanılan Teknolojiler
+Flutter
+
+Dart
+
+[Diğer teknolojiler]
+
+Başlangıç
+Gereksinimler
+Flutter SDK (sürüm X.X.X)
+
+Dart SDK (sürüm X.X.X)
+
+[Diğer gerekli yazılımlar]
+
+Kurulum Adımları
+Projeyi bilgisayarınıza indirin:
+git  clone [https://github.com/Tarikusta52/haykollig]
+Proje klasörüne gidin:
+cd [Haykolig]
+Gerekli paketleri yükleyin:
+flutter  pub  get
+Uygulamayı başlatın:
+flutter  run
+Proje Yapısı
+
+lib/
+
+├── modeller/ # Veri modelleri
+
+├── ekranlar/ # Uygulama ekranları
+
+├── widgets/ # Tekrar kullanılabilir arayüz öğeleri
+
+├── servisler/ # API servisleri
+
+└── yardımcılar/ # Yardımcı fonksiyonlar
+
+Ekran Görüntüleri
+[Uygulama ekran görüntüleri buraya eklenecek]
+
+Projeye Katkı Sağlama
+Projeyi forklayın
+
+Yeni bir dal oluşturun (git checkout -b ozellik/YeniOzellik)
+
+Değişikliklerinizi kaydedin (git commit -m 'Yeni özellik eklendi')
+
+Dalınıza gönderin (git push origin ozellik/YeniOzellik)
+
+Pull Request oluşturun
+
+Lisans
+[Lisans türü] kapsamında lisanslanmıştır. Daha fazla bilgi için LICENSE dosyasını inceleyebilirsiniz.
+
+İletişim
+Proje Bağlantısı: [https://github.com/Tarikusta52/haykollig]
+
+İstinye Üniversitesi: https://www.istinye.edu.tr/
+
+Teşekkürler
+İstinye Üniversitesi'ne destekleri için teşekkür ederiz
