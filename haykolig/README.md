@@ -2,15 +2,19 @@
 
 
 Proje Hakkında
+
 Kullanıcının futbol bültenindeki maçlar hakkında bilgi alıp sohbet edebileceği bir sosyal medya platformu
+
 
 Ekibimiz
 Danışman:
-[https://github.com/keyvanarasteh](Keyvan Arasteh)
+[https://github.com/keyvanarasteh] (Keyvan Arasteh)
+
 
 Takım Üyeleri:
 
-Tarık Ustaoğlu [GitHub](https://github.com/Tarikusta52)
+Tarık Ustaoğlu [GitHub] (https://github.com/Tarikusta52)
+
 
 Özellikler
 [Kullanıcı bültendeki maçlar hakkında yorum yapabilecek]
@@ -19,12 +23,14 @@ Tarık Ustaoğlu [GitHub](https://github.com/Tarikusta52)
 
 [Karşı karşıya gelen takımların son oyadığı 5 maçın sonucu ve aralarında oynadıkları son 5 maçın sonucu verilecek]
 
+
 Kullanılan Teknolojiler
 Flutter
 
 Dart
 
 [Diğer teknolojiler]
+
 
 Başlangıç
 Gereksinimler
@@ -35,14 +41,20 @@ Dart SDK (sürüm X.X.X)
 [Diğer gerekli yazılımlar]
 
 Kurulum Adımları
+
 Projeyi bilgisayarınıza indirin:
 git  clone [https://github.com/Tarikusta52/haykollig]
+
 Proje klasörüne gidin:
 cd [Haykolig]
+
 Gerekli paketleri yükleyin:
 flutter  pub  get
+
 Uygulamayı başlatın:
 flutter  run
+
+
 Proje Yapısı
 
 lib/
@@ -57,8 +69,9 @@ lib/
 
 └── yardımcılar/ # Yardımcı fonksiyonlar
 
+
 Ekran Görüntüleri
-[Uygulama ekran görüntüleri buraya eklenecek]
+
 
 Projeye Katkı Sağlama
 Projeyi forklayın
