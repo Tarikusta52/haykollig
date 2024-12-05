@@ -28,8 +28,8 @@ Kullanıcının futbol bültenindeki maçlar hakkında bilgi alıp sohbet edebil
 
 ### Gereksinimler
 
-- Flutter SDK (sürüm X.X.X)  
-- Dart SDK (sürüm X.X.X)  
+- Flutter SDK (sürüm 3.24.5)  
+- Dart SDK (sürüm 3.5.4)  
 - [Diğer gerekli yazılımlar]  
 
 
@@ -66,16 +66,18 @@ flutter run
 ```
 lib/
 
-├── modeller/      # Veri modelleri
-├── ekranlar/      # Uygulama ekranları
-├── widgets/       # Tekrar kullanılabilir arayüz öğeleri
-├── servisler/     # API servisleri
-└── yardımcılar/   # Yardımcı fonksiyonlar
+├── screens/      # Uygulama ekranları
+├── widgets/      # Tekrar kullanılabilir arayüz öğeleri
+├── src/       # Tema hakkında bazı bileşenler
+
 ```
 
 ---
 
 ## Ekran Görüntüleri
+![image](https://github.com/user-attachments/assets/b68d79cb-3689-4bf1-a62d-4dc4a5906a56)
+![image](https://github.com/user-attachments/assets/3781b58a-e76a-428c-901a-40c112a0114e)
+![image](https://github.com/user-attachments/assets/d86ea448-a14e-4856-b262-4bbfc3937783)
 
 ---
 
