@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:haykolig/src/appColors.dart';
 import 'package:haykolig/widgets/bottomNavigation.dart';
 import 'package:haykolig/widgets/matchCard.dart';
-import 'package:haykolig/widgets/textStyles.dart';
 
 class DetailScreen extends StatefulWidget {
   const DetailScreen(
@@ -42,12 +40,18 @@ class _DetailScreenState extends State<DetailScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppColors.backgroundColor,
-        title: MontserratText(
-            text: widget.title,
-            weight: "bold",
-            size: 25,
-            color: AppColors.secondaryColor),
+        backgroundColor: Theme.of(context)
+            .colorScheme
+            .background, // Tema ile uyumlu arka plan rengi
+        title: Text(
+          widget.title,
+          style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                fontWeight: FontWeight.bold,
+                color: Theme.of(context)
+                    .colorScheme
+                    .secondary, // Tema ile uyumlu başlık rengi
+              ),
+        ),
       ),
       body: Center(
         child: Column(
@@ -57,7 +61,10 @@ class _DetailScreenState extends State<DetailScreen> {
                 child: Container(
               width: double.infinity,
               height: double.infinity,
-              decoration: BoxDecoration(color: AppColors.backgroundColor),
+              decoration: BoxDecoration(
+                  color: Theme.of(context)
+                      .colorScheme
+                      .background), // Tema arka plan rengi
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: SingleChildScrollView(
@@ -73,35 +80,57 @@ class _DetailScreenState extends State<DetailScreen> {
                             children: [
                               _teamInfo(
                                   widget.team1, widget.team1.recentMatches!),
-                              MontserratText(
-                                text: 'vs',
-                                size: 20,
-                                color: AppColors.secondaryColor,
-                                weight: 'normal',
+                              Text(
+                                'vs',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium
+                                    ?.copyWith(
+                                      fontSize: 20,
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .secondary, // Tema ile uyumlu metin rengi
+                                    ),
                               ),
                               _teamInfo(
                                   widget.team2, widget.team2.recentMatches!),
                             ],
                           ),
                           SizedBox(height: 10),
-                          MontserratText(
-                            text: '📅 Tarih: ${widget.matchDate}',
-                            size: 16,
-                            color: Colors.black,
-                            weight: 'normal',
+                          Text(
+                            '📅 Tarih: ${widget.matchDate}',
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium
+                                ?.copyWith(
+                                  fontSize: 16,
+                                  color:
+                                      Theme.of(context).colorScheme.secondary,
+                                ),
                           ),
-                          MontserratText(
-                            text: '🏟 Stadyum: ${widget.stadium}',
-                            size: 16,
-                            color: Colors.black,
-                            weight: 'normal',
+                          Text(
+                            '🏟 Stadyum: ${widget.stadium}',
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium
+                                ?.copyWith(
+                                  fontSize: 16,
+                                  color:
+                                      Theme.of(context).colorScheme.secondary,
+                                ),
                           ),
                           Divider(height: 20, thickness: 1),
-                          MontserratText(
-                            text: '💬 Yorumlar',
-                            size: 18,
-                            color: AppColors.secondaryColor,
-                            weight: 'normal',
+                          Text(
+                            '💬 Yorumlar',
+                            style: Theme.of(context)
+                                .textTheme
+                                .headlineMedium
+                                ?.copyWith(
+                                  fontSize: 18,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .secondary, // Tema ile uyumlu metin rengi
+                                ),
                           ),
                           // Yorumların Listesi
                           ListView.builder(
@@ -115,11 +144,17 @@ class _DetailScreenState extends State<DetailScreen> {
                           // Yorum ekleme kısmı
                           _commentInput(),
                           Divider(height: 20, thickness: 1),
-                          MontserratText(
-                            text: '📊 Son 5 Maç Skorları',
-                            size: 18,
-                            color: AppColors.secondaryColor,
-                            weight: 'normal',
+                          Text(
+                            '📊 Son 5 Maç Skorları',
+                            style: Theme.of(context)
+                                .textTheme
+                                .headlineMedium
+                                ?.copyWith(
+                                  fontSize: 18,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .secondary, // Tema ile uyumlu metin rengi
+                                ),
                           ),
                           _recentScoresDisplay(widget.team1, widget.team2),
                         ],
@@ -129,7 +164,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 ),
               ),
             )),
-            bottomNavigation()
+            BottomNavigation()
           ],
         ),
       ),
@@ -141,11 +176,15 @@ class _DetailScreenState extends State<DetailScreen> {
       children: [
         Image.network(team.logoUrl, width: 50, height: 50),
         SizedBox(height: 5),
-        MontserratText(
-          text: team.name,
-          size: 16,
-          color: AppColors.secondaryColor,
-          weight: 'bold',
+        Text(
+          team.name,
+          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: Theme.of(context)
+                    .colorScheme
+                    .secondary, // Tema ile uyumlu metin rengi
+              ),
         ),
         Row(
           children: recentMatches.map((match) {
@@ -188,17 +227,24 @@ class _DetailScreenState extends State<DetailScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                MontserratText(
-                  text: comment.name,
-                  size: 14,
-                  color: Colors.black,
-                  weight: 'bold',
+                Text(
+                  comment.name,
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                        color: Theme.of(context)
+                            .colorScheme
+                            .secondary, // Tema ile uyumlu metin rengi
+                      ),
                 ),
-                MontserratText(
-                  text: comment.text,
-                  size: 14,
-                  color: Colors.black,
-                  weight: 'normal',
+                Text(
+                  comment.text,
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                        fontSize: 14,
+                        color: Theme.of(context)
+                            .colorScheme
+                            .secondary, // Tema ile uyumlu metin rengi
+                      ),
                 ),
               ],
             ),
@@ -222,12 +268,15 @@ class _DetailScreenState extends State<DetailScreen> {
               controller: _controller,
               decoration: InputDecoration(
                 hintText: 'Yorum ekle...',
+                hintStyle: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                      color: Colors.grey, // Tema ile uyumlu yazı rengi
+                    ),
                 border: OutlineInputBorder(),
               ),
             ),
           ),
           IconButton(
-            icon: Icon(Icons.send),
+            icon: Icon(Icons.send, color: Theme.of(context).colorScheme.error),
             onPressed: () {
               if (_controller.text.isNotEmpty) {
                 setState(() {
@@ -257,30 +306,41 @@ class _DetailScreenState extends State<DetailScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Image.network(team1.logoUrl, width: 50, height: 50),
-              MontserratText(
-                  text: team1.name,
-                  weight: 'normal',
-                  size: 16,
-                  color: Colors.black),
+              Text(
+                team1.name,
+                style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                      fontSize: 16,
+                      color: Theme.of(context)
+                          .colorScheme
+                          .secondary, // Tema ile uyumlu metin rengi
+                    ),
+              ),
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 5),
                 padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  color: AppColors.secondaryColor,
+                  color: Theme.of(context)
+                      .colorScheme
+                      .error, // Tema ile uyumlu arka plan rengi
                 ),
-                child: MontserratText(
-                  text: score,
-                  size: 14,
-                  color: Colors.white,
-                  weight: 'normal',
+                child: Text(
+                  score,
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                        fontSize: 14,
+                        color: Colors.white, // Tema ile uyumlu yazı rengi
+                      ),
                 ),
               ),
-              MontserratText(
-                  text: team2.name,
-                  weight: 'normal',
-                  size: 16,
-                  color: Colors.black),
+              Text(
+                team2.name,
+                style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                      fontSize: 16,
+                      color: Theme.of(context)
+                          .colorScheme
+                          .secondary, // Tema ile uyumlu metin rengi
+                    ),
+              ),
               Image.network(team2.logoUrl, width: 50, height: 50),
             ],
           ),

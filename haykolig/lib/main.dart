@@ -1,8 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart'; // shared_preferences paketini import et
 import 'package:haykolig/screens/home.dart';
+import 'core/themes.dart';
+import 'core/util.dart';
+import 'core/routes.dart';
 
 void main() {
   runApp(const MyApp());
+}
+
+class ThemeProvider extends ChangeNotifier {
+  Brightness _brightness = Brightness.light;
+
+  Brightness get brightness => _brightness;
+
+  ThemeProvider() {
+    _loadTheme();
+  }
+
+  // Tema bilgilerini SharedPreferences'tan yükle
+  Future<void> _loadTheme() async {
+    final prefs = await SharedPreferences.getInstance();
+    // Eğer kullanıcı daha önce bir tercih yaptıysa, o tercihi kullan
+    _brightness = prefs.getBool('isDarkMode') ?? false
+        ? Brightness.dark
+        : Brightness.light;
+    notifyListeners();
+  }
+
+  // Temayı değiştirip SharedPreferences'a kaydet
+  Future<void> toggleTheme() async {
+    final prefs = await SharedPreferences.getInstance();
+    _brightness =
+        _brightness == Brightness.light ? Brightness.dark : Brightness.light;
+    await prefs.setBool('isDarkMode', _brightness == Brightness.dark);
+    notifyListeners();
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -10,14 +44,36 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Haykolig',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return ChangeNotifierProvider(
+      create: (_) => ThemeProvider(), // ThemeProvider'ı burada sağlıyoruz
+      child: Consumer<ThemeProvider>(
+        builder: (context, themeProvider, child) {
+          TextTheme textTheme =
+              createTextTheme(context, "Montserrat", "Montserrat");
+          MaterialTheme theme = MaterialTheme(textTheme);
+
+          return MaterialApp.router(
+            title: 'Flutter Demo',
+            debugShowCheckedModeBanner: false,
+            theme: themeProvider.brightness == Brightness.light
+                ? theme.light()
+                : theme.dark(),
+            routerConfig: router,
+          );
+        },
       ),
-      home: const HomeScreen(),
+    );
+  }
+}
+
+class ThemeToggleButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      icon: Icon(Icons.brightness_6),
+      onPressed: () {
+        Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
+      },
     );
   }
 }

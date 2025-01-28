@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:haykolig/screens/detaill.dart';
-import 'package:haykolig/src/appColors.dart';
-import 'package:haykolig/widgets/textStyles.dart';
+import 'package:go_router/go_router.dart';
 
 class MatchCard extends StatelessWidget {
   final Team team1;
@@ -22,21 +20,20 @@ class MatchCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return InkWell(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => DetailScreen(
-              title: 'Maç Detayı',
-              team1: team1,
-              team2: team2,
-              matchDate: matchDate,
-              stadium: stadium,
-              comments: comments,
-              recentScores: recentScores,
-            ),
-          ),
+        context.push(
+          '/detail',
+          extra: {
+            'title': 'Maç Detayı',
+            'team1': team1,
+            'team2': team2,
+            'matchDate': matchDate,
+            'stadium': stadium,
+            'comments': comments,
+            'recentScores': recentScores,
+          },
         );
       },
       child: Card(
@@ -50,41 +47,36 @@ class MatchCard extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  _teamInfo(team1),
-                  MontserratText(
-                    text: 'vs',
-                    size: 20,
-                    color: AppColors.secondaryColor,
-                    weight: 'normal',
+                  _teamInfo(context, team1),
+                  Text(
+                    'vs',
+                    style: theme.textTheme.bodyLarge
+                        ?.copyWith(fontWeight: FontWeight.w500),
                   ),
-                  _teamInfo(team2),
+                  _teamInfo(context, team2),
                 ],
               ),
-              SizedBox(height: 10),
-              MontserratText(
-                text: '📅 Tarih: $matchDate',
-                size: 16,
-                color: Colors.black,
-                weight: 'normal',
+              const SizedBox(height: 10),
+              Text(
+                '📅 Tarih: $matchDate',
+                style: theme.textTheme.bodyMedium,
               ),
-              MontserratText(
-                text: '🏟 Stadyum: $stadium',
-                size: 16,
-                color: Colors.black,
-                weight: 'normal',
+              Text(
+                '🏟 Stadyum: $stadium',
+                style: theme.textTheme.bodyMedium,
               ),
-              Divider(height: 20, thickness: 1),
-              MontserratText(
-                text: '💬 Yorumlar',
-                size: 18,
-                color: AppColors.secondaryColor,
-                weight: 'normal',
+              const Divider(height: 20, thickness: 1),
+              Text(
+                '💬 Yorumlar',
+                style: theme.textTheme.titleMedium
+                    ?.copyWith(fontWeight: FontWeight.bold),
               ),
               ListView.builder(
                 shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: comments.length,
                 itemBuilder: (context, index) {
-                  return _commentCard(comments[index]);
+                  return _commentCard(context, comments[index]);
                 },
               ),
             ],
@@ -94,22 +86,25 @@ class MatchCard extends StatelessWidget {
     );
   }
 
-  Widget _teamInfo(Team team) {
+  Widget _teamInfo(BuildContext context, Team team) {
+    final theme = Theme.of(context);
     return Column(
       children: [
         Image.network(team.logoUrl, width: 50, height: 50),
-        SizedBox(height: 5),
-        MontserratText(
-          text: team.name,
-          size: 16,
-          color: AppColors.secondaryColor,
-          weight: 'bold',
+        const SizedBox(height: 5),
+        Text(
+          team.name,
+          style: theme.textTheme.bodyLarge?.copyWith(
+            fontWeight: FontWeight.bold,
+            color: theme.colorScheme.error,
+          ),
         ),
       ],
     );
   }
 
-  Widget _commentCard(Comment comment) {
+  Widget _commentCard(BuildContext context, Comment comment) {
+    final theme = Theme.of(context);
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Row(
@@ -117,22 +112,19 @@ class MatchCard extends StatelessWidget {
           CircleAvatar(
             backgroundImage: NetworkImage(comment.profilePicUrl),
           ),
-          SizedBox(width: 10),
+          const SizedBox(width: 10),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                MontserratText(
-                  text: comment.name,
-                  size: 14,
-                  color: Colors.black,
-                  weight: 'bold',
+                Text(
+                  comment.name,
+                  style: theme.textTheme.bodyLarge
+                      ?.copyWith(fontWeight: FontWeight.bold),
                 ),
-                MontserratText(
-                  text: comment.text,
-                  size: 14,
-                  color: Colors.black,
-                  weight: 'normal',
+                Text(
+                  comment.text,
+                  style: theme.textTheme.bodyMedium,
                 ),
               ],
             ),
@@ -160,6 +152,7 @@ class MatchCardSmall extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Card(
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
@@ -171,16 +164,15 @@ class MatchCardSmall extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _teamInfo(team1),
-                SizedBox(width: 20),
-                MontserratText(
-                  text: 'vs',
-                  size: 20,
-                  color: AppColors.secondaryColor,
-                  weight: 'normal',
+                _teamInfo(context, team1),
+                const SizedBox(width: 20),
+                Text(
+                  'vs',
+                  style: theme.textTheme.bodyLarge
+                      ?.copyWith(fontWeight: FontWeight.w500),
                 ),
-                SizedBox(width: 20),
-                _teamInfo(team2),
+                const SizedBox(width: 20),
+                _teamInfo(context, team2),
               ],
             ),
           ],
@@ -189,16 +181,18 @@ class MatchCardSmall extends StatelessWidget {
     );
   }
 
-  Widget _teamInfo(Team team) {
+  Widget _teamInfo(BuildContext context, Team team) {
+    final theme = Theme.of(context);
     return Column(
       children: [
         Image.network(team.logoUrl, width: 50, height: 50),
-        SizedBox(height: 5),
-        MontserratText(
-          text: team.shortName!,
-          size: 16,
-          color: AppColors.secondaryColor,
-          weight: 'bold',
+        const SizedBox(height: 5),
+        Text(
+          team.shortName ?? team.name,
+          style: theme.textTheme.bodyLarge?.copyWith(
+            fontWeight: FontWeight.bold,
+            color: theme.colorScheme.error,
+          ),
         ),
       ],
     );
@@ -211,11 +205,12 @@ class Team {
   final String logoUrl;
   final List<String>? recentMatches;
 
-  Team(
-      {required this.name,
-      this.recentMatches,
-      this.shortName,
-      required this.logoUrl});
+  Team({
+    required this.name,
+    this.recentMatches,
+    this.shortName,
+    required this.logoUrl,
+  });
 }
 
 class Comment {
@@ -223,6 +218,9 @@ class Comment {
   final String profilePicUrl;
   final String text;
 
-  Comment(
-      {required this.name, required this.profilePicUrl, required this.text});
+  Comment({
+    required this.name,
+    required this.profilePicUrl,
+    required this.text,
+  });
 }
