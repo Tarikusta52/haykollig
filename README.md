@@ -85,7 +85,7 @@ lib/
 
 Proje tanıtım videosunu izlemek için aşağıdaki bağlantıya tıklayın:
 
-[Proje Tanıtım Videosu]([https://www.youtube.com/watch?v=video_id](https://www.youtube.com/watch?v=UyMuOyBrgTA))
+[Proje Tanıtım Videosu](https://www.youtube.com/watch?v=UyMuOyBrgTA)
 
 
 ---
