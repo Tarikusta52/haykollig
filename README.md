@@ -90,9 +90,9 @@ lib/
 
 ## Video
 
-Proje tanıtım videosunu izlemek için aşağıdaki bağlantıya tıklayın:
 
-[Proje Tanıtım Videosu](https://www.youtube.com/watch?v=UyMuOyBrgTA)
+https://github.com/user-attachments/assets/570e44ee-0e0e-43a3-bf08-b709dac20bc8
+
 
 
 ---
