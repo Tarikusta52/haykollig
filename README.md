@@ -82,10 +82,11 @@ lib/
 ---
 
 ## Video
-<video width="320" height="240" controls>
-  <source src="video.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+
+Proje tanıtım videosunu izlemek için aşağıdaki bağlantıya tıklayın:
+
+[Proje Tanıtım Videosu]([https://www.youtube.com/watch?v=video_id](https://www.youtube.com/watch?v=UyMuOyBrgTA))
+
 
 ---
 
