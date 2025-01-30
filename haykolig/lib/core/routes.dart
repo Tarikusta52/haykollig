@@ -1,15 +1,13 @@
-// uygulamada sayfalari ve navigasyon islemlerini burada tanimlicaz
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:haykolig/screens/detaill.dart';
+import 'package:haykolig/screens/editProfile.dart';
 import 'package:haykolig/screens/home.dart';
 import 'package:haykolig/screens/profile.dart';
 import 'package:haykolig/widgets/matchCard.dart';
 
-// Router yapılandırması
 final router = GoRouter(
-  initialLocation: '/home', // Başlangıç rotası
+  initialLocation: '/home',
   routes: [
     GoRoute(
       path: '/home',
@@ -39,6 +37,13 @@ final router = GoRouter(
       pageBuilder: (context, state) => NoTransitionPage<void>(
         key: state.pageKey,
         child: ProfileScreen(),
+      ),
+    ),
+    GoRoute(
+      path: '/editProfile',
+      pageBuilder: (context, state) => NoTransitionPage<void>(
+        key: state.pageKey,
+        child: EditProfileScreen(),
       ),
     ),
   ],

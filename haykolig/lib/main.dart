@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart'; // shared_preferences paketini import et
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:haykolig/screens/home.dart';
 import 'core/themes.dart';
 import 'core/util.dart';
@@ -19,17 +19,14 @@ class ThemeProvider extends ChangeNotifier {
     _loadTheme();
   }
 
-  // Tema bilgilerini SharedPreferences'tan yükle
   Future<void> _loadTheme() async {
     final prefs = await SharedPreferences.getInstance();
-    // Eğer kullanıcı daha önce bir tercih yaptıysa, o tercihi kullan
     _brightness = prefs.getBool('isDarkMode') ?? false
         ? Brightness.dark
         : Brightness.light;
     notifyListeners();
   }
 
-  // Temayı değiştirip SharedPreferences'a kaydet
   Future<void> toggleTheme() async {
     final prefs = await SharedPreferences.getInstance();
     _brightness =
@@ -45,7 +42,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (_) => ThemeProvider(), // ThemeProvider'ı burada sağlıyoruz
+      create: (_) => ThemeProvider(),
       child: Consumer<ThemeProvider>(
         builder: (context, themeProvider, child) {
           TextTheme textTheme =

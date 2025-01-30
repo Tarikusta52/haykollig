@@ -53,7 +53,7 @@ class HomeScreen extends StatelessWidget {
                                     name: 'Beşiktaş',
                                     shortName: 'BJK',
                                     logoUrl:
-                                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAr6SivQ-PWI22-aA3mZzDctSGAUWLyLWQCA&s'),
+                                        'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Logo_of_Be%C5%9Fikta%C5%9F_JK.svg/220px-Logo_of_Be%C5%9Fikta%C5%9F_JK.svg.png'),
                                 matchDate: '30 Kasım 2024, 22:45',
                                 stadium: 'Santiago Bernebau',
                                 comments: [
@@ -92,12 +92,12 @@ class HomeScreen extends StatelessWidget {
                                     name: 'Real Madrid',
                                     shortName: 'RMA',
                                     logoUrl:
-                                        '//ssl.gstatic.com/onebox/media/sports/logos/Th4fAVAZeCJWRcKoLW7koA_96x96.png'),
+                                        'https://upload.wikimedia.org/wikipedia/tr/9/98/Real_Madrid.png'),
                                 team2: Team(
                                     name: 'Getafe',
                                     shortName: 'GTF',
                                     logoUrl:
-                                        '//ssl.gstatic.com/onebox/media/sports/logos/1UDHZMdKZD15W5gus7dJyg_96x96.png'),
+                                        'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Getafe_CF_Logo.png/150px-Getafe_CF_Logo.png'),
                                 matchDate: '30 Kasım 2024, 22:45',
                                 stadium: 'Santiago Bernebau',
                                 comments: [
@@ -125,7 +125,7 @@ class HomeScreen extends StatelessWidget {
                               name: 'Galatasaray',
                               recentMatches: ['W', 'W', 'W', 'D', 'D'],
                               logoUrl:
-                                  '//ssl.gstatic.com/onebox/media/sports/logos/TWjoccvTU4JXZJZ3aW3cVg_96x96.png'),
+                                  'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Galatasaray_Sports_Club_Logo.png/481px-Galatasaray_Sports_Club_Logo.png'),
                           team2: Team(
                               name: 'Fenerbahçe',
                               recentMatches: ['L', 'W', 'W', 'W', 'W'],
@@ -135,18 +135,115 @@ class HomeScreen extends StatelessWidget {
                           stadium: 'Rams Park',
                           comments: [
                             Comment(
-                              name: 'Namlusu Yanık Kalaşnikof',
-                              profilePicUrl:
-                                  'https://scontent.fist6-3.fna.fbcdn.net/v/t39.30808-6/458639289_3884906988501199_632338042608327774_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=eSNGbNgCZhgQ7kNvgEdYaXd&_nc_zt=23&_nc_ht=scontent.fist6-3.fna&_nc_gid=AHerqaoF_DTeA1VpG1NIr5L&oh=00_AYDcTlMuYeCTdyilzWd_eIGyTEPx2yqu1jJJM7EaPgW1rQ&oe=6750D7AB',
-                              text: 'Montella İstifa!',
-                            ),
-                            Comment(
                               name: 'Rambo Okan',
                               profilePicUrl:
                                   'https://pbs.twimg.com/profile_images/2478454759/behzat-_-vs-rambo-okan_244582_400x400.jpg',
                               text: 'En büyük CİMBOM',
                             ),
                           ],
+                        ),
+                        MatchCard(
+                          recentScores: ['2-1', '1-0', '1-0', '2-0', '0-1'],
+                          team1: Team(
+                              name: 'Real Madrid',
+                              recentMatches: ['W', 'L', 'W', 'W', 'L'],
+                              logoUrl:
+                                  'https://upload.wikimedia.org/wikipedia/tr/9/98/Real_Madrid.png'),
+                          team2: Team(
+                              name: 'Getafe',
+                              recentMatches: ['D', 'L', 'L', 'W', 'W'],
+                              logoUrl:
+                                  'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Getafe_CF_Logo.png/150px-Getafe_CF_Logo.png'),
+                          matchDate: '30 Kasım 2024, 19:00',
+                          stadium: 'Santiago Bernabéu',
+                          comments: [
+                            Comment(
+                              name: 'Arda Güler',
+                              profilePicUrl:
+                                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr9G6M5YuiTWmxoN4QW9Rln9zhnDzhn0eihQ&s',
+                              text: 'Yine kulübedeyim :(',
+                            ),
+                          ],
+                        ),
+                        Text(
+                          'Yarının Önemli Maçları',
+                          style: theme.textTheme.headlineSmall?.copyWith(
+                            color: theme.colorScheme.primary,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: [
+                              MatchCardSmall(
+                                team1: Team(
+                                    name: 'Manchester United',
+                                    shortName: 'MU',
+                                    logoUrl:
+                                        'https://upload.wikimedia.org/wikipedia/tr/b/b6/Manchester_United_FC_logo.png'),
+                                team2: Team(
+                                    name: 'nottingham Forest',
+                                    shortName: 'NOT',
+                                    logoUrl:
+                                        'https://upload.wikimedia.org/wikipedia/tr/8/85/Nottingham_Forest_FC.png'),
+                                matchDate: '30 Kasım 2024, 22:45',
+                                stadium: 'Santiago Bernebau',
+                                comments: [
+                                  Comment(
+                                    name: 'Arda Güler',
+                                    profilePicUrl:
+                                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr9G6M5YuiTWmxoN4QW9Rln9zhnDzhn0eihQ&s',
+                                    text: 'Yine kulübedeyim :(',
+                                  ),
+                                ],
+                              ),
+                              MatchCardSmall(
+                                team1: Team(
+                                    name: 'Crystal Palace',
+                                    shortName: 'CRY',
+                                    logoUrl:
+                                        'https://upload.wikimedia.org/wikipedia/hif/c/c1/Crystal_Palace_FC_logo.png'),
+                                team2: Team(
+                                    name: 'Manchester City',
+                                    shortName: 'MCI',
+                                    logoUrl:
+                                        'https://upload.wikimedia.org/wikipedia/tr/archive/f/f6/20160808091023%21Manchester_City.png'),
+                                matchDate: '30 Kasım 2024, 22:45',
+                                stadium: 'Santiago Bernebau',
+                                comments: [
+                                  Comment(
+                                    name: 'Arda Güler',
+                                    profilePicUrl:
+                                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr9G6M5YuiTWmxoN4QW9Rln9zhnDzhn0eihQ&s',
+                                    text: 'Yine kulübedeyim :(',
+                                  ),
+                                ],
+                              ),
+                              MatchCardSmall(
+                                team1: Team(
+                                    name: 'Barcelona',
+                                    shortName: 'BAR',
+                                    logoUrl:
+                                        'https://upload.wikimedia.org/wikipedia/tr/thumb/4/47/FC_Barcelona.png/200px-FC_Barcelona.png'),
+                                team2: Team(
+                                    name: 'Getafe',
+                                    shortName: 'GTF',
+                                    logoUrl:
+                                        'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Getafe_CF_Logo.png/150px-Getafe_CF_Logo.png'),
+                                matchDate: '30 Kasım 2024, 22:45',
+                                stadium: 'Santiago Bernebau',
+                                comments: [
+                                  Comment(
+                                    name: 'Arda Güler',
+                                    profilePicUrl:
+                                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr9G6M5YuiTWmxoN4QW9Rln9zhnDzhn0eihQ&s',
+                                    text: 'Yine kulübedeyim :(',
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),

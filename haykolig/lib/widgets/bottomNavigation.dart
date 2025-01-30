@@ -9,9 +9,7 @@ class BottomNavigation extends StatelessWidget {
     return Container(
       height: 60,
       decoration: BoxDecoration(
-        color: Theme.of(context)
-            .colorScheme
-            .error, // Arka plan rengini error olarak değiştirdik
+        color: Theme.of(context).colorScheme.error,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -19,7 +17,6 @@ class BottomNavigation extends StatelessWidget {
         children: [
           InkWell(
             onTap: () {
-              // GoRouter kullanarak navigasyon
               context.go('/home');
             },
             child: Column(
@@ -27,15 +24,12 @@ class BottomNavigation extends StatelessWidget {
               children: [
                 Icon(
                   Icons.home,
-                  color: Theme.of(context)
-                      .iconTheme
-                      .color, // İkon rengini tema ile alıyoruz
+                  color: Theme.of(context).iconTheme.color,
                 ),
                 Text(
                   "Anasayfa",
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                        fontWeight:
-                            FontWeight.bold, // Metin stilini tema ile alıyoruz
+                        fontWeight: FontWeight.bold,
                         fontSize: 14,
                       ),
                 ),
@@ -44,7 +38,6 @@ class BottomNavigation extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              // GoRouter kullanarak navigasyon
               context.go('/profile');
             },
             child: Column(
@@ -52,15 +45,12 @@ class BottomNavigation extends StatelessWidget {
               children: [
                 Icon(
                   Icons.person,
-                  color: Theme.of(context)
-                      .iconTheme
-                      .color, // İkon rengini tema ile alıyoruz
+                  color: Theme.of(context).iconTheme.color,
                 ),
                 Text(
                   "Profil",
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                        fontWeight:
-                            FontWeight.bold, // Metin stilini tema ile alıyoruz
+                        fontWeight: FontWeight.bold,
                         fontSize: 14,
                       ),
                 ),

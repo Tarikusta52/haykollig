@@ -40,16 +40,12 @@ class _DetailScreenState extends State<DetailScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context)
-            .colorScheme
-            .background, // Tema ile uyumlu arka plan rengi
+        backgroundColor: Theme.of(context).colorScheme.background,
         title: Text(
           widget.title,
           style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                 fontWeight: FontWeight.bold,
-                color: Theme.of(context)
-                    .colorScheme
-                    .secondary, // Tema ile uyumlu başlık rengi
+                color: Theme.of(context).colorScheme.secondary,
               ),
         ),
       ),
@@ -62,16 +58,13 @@ class _DetailScreenState extends State<DetailScreen> {
               width: double.infinity,
               height: double.infinity,
               decoration: BoxDecoration(
-                  color: Theme.of(context)
-                      .colorScheme
-                      .background), // Tema arka plan rengi
+                  color: Theme.of(context).colorScheme.background),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Takımların bilgisi ve son 5 maç form durumu
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -89,7 +82,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                       fontSize: 20,
                                       color: Theme.of(context)
                                           .colorScheme
-                                          .secondary, // Tema ile uyumlu metin rengi
+                                          .secondary,
                                     ),
                               ),
                               _teamInfo(
@@ -127,12 +120,10 @@ class _DetailScreenState extends State<DetailScreen> {
                                 .headlineMedium
                                 ?.copyWith(
                                   fontSize: 18,
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .secondary, // Tema ile uyumlu metin rengi
+                                  color:
+                                      Theme.of(context).colorScheme.secondary,
                                 ),
                           ),
-                          // Yorumların Listesi
                           ListView.builder(
                             shrinkWrap: true,
                             itemCount: widget.comments.length,
@@ -141,7 +132,6 @@ class _DetailScreenState extends State<DetailScreen> {
                             },
                           ),
                           Divider(height: 20, thickness: 1),
-                          // Yorum ekleme kısmı
                           _commentInput(),
                           Divider(height: 20, thickness: 1),
                           Text(
@@ -151,9 +141,8 @@ class _DetailScreenState extends State<DetailScreen> {
                                 .headlineMedium
                                 ?.copyWith(
                                   fontSize: 18,
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .secondary, // Tema ile uyumlu metin rengi
+                                  color:
+                                      Theme.of(context).colorScheme.secondary,
                                 ),
                           ),
                           _recentScoresDisplay(widget.team1, widget.team2),
@@ -181,9 +170,7 @@ class _DetailScreenState extends State<DetailScreen> {
           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
-                color: Theme.of(context)
-                    .colorScheme
-                    .secondary, // Tema ile uyumlu metin rengi
+                color: Theme.of(context).colorScheme.secondary,
               ),
         ),
         Row(
@@ -232,18 +219,14 @@ class _DetailScreenState extends State<DetailScreen> {
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
-                        color: Theme.of(context)
-                            .colorScheme
-                            .secondary, // Tema ile uyumlu metin rengi
+                        color: Theme.of(context).colorScheme.secondary,
                       ),
                 ),
                 Text(
                   comment.text,
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                         fontSize: 14,
-                        color: Theme.of(context)
-                            .colorScheme
-                            .secondary, // Tema ile uyumlu metin rengi
+                        color: Theme.of(context).colorScheme.secondary,
                       ),
                 ),
               ],
@@ -269,7 +252,7 @@ class _DetailScreenState extends State<DetailScreen> {
               decoration: InputDecoration(
                 hintText: 'Yorum ekle...',
                 hintStyle: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                      color: Colors.grey, // Tema ile uyumlu yazı rengi
+                      color: Colors.grey,
                     ),
                 border: OutlineInputBorder(),
               ),
@@ -280,7 +263,6 @@ class _DetailScreenState extends State<DetailScreen> {
             onPressed: () {
               if (_controller.text.isNotEmpty) {
                 setState(() {
-                  // Yorumları ekle
                   comments.add(Comment(
                     name: "Yeni Kullanıcı",
                     profilePicUrl: 'assets/default_profile_pic.png',
@@ -310,9 +292,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 team1.name,
                 style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                       fontSize: 16,
-                      color: Theme.of(context)
-                          .colorScheme
-                          .secondary, // Tema ile uyumlu metin rengi
+                      color: Theme.of(context).colorScheme.secondary,
                     ),
               ),
               Container(
@@ -320,15 +300,13 @@ class _DetailScreenState extends State<DetailScreen> {
                 padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  color: Theme.of(context)
-                      .colorScheme
-                      .error, // Tema ile uyumlu arka plan rengi
+                  color: Theme.of(context).colorScheme.error,
                 ),
                 child: Text(
                   score,
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                         fontSize: 14,
-                        color: Colors.white, // Tema ile uyumlu yazı rengi
+                        color: Colors.white,
                       ),
                 ),
               ),
@@ -336,9 +314,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 team2.name,
                 style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                       fontSize: 16,
-                      color: Theme.of(context)
-                          .colorScheme
-                          .secondary, // Tema ile uyumlu metin rengi
+                      color: Theme.of(context).colorScheme.secondary,
                     ),
               ),
               Image.network(team2.logoUrl, width: 50, height: 50),
